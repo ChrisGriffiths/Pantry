@@ -46,5 +46,9 @@ public protocol Warehouseable: class {
      */
     func get<T: Storable>(valueKey: String) -> [T]?
 
-
+    /**
+     Retrieve the raw object stored
+     - returns: AnyObject?
+     */
+    var rawObject: AnyObject? { get }
 }

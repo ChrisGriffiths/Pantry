@@ -78,8 +78,12 @@ extension MemoryWarehouse: Warehouseable {
                 unpackedItems.append(item)
             }
         }
-        
+
         return unpackedItems
+    }
+
+    public var rawObject: AnyObject? {
+        return loadCache()
     }
 }
 
@@ -99,7 +103,7 @@ extension MemoryWarehouse: WarehouseCacheable {
     func removeCache() {
         MemoryWarehouse.globalCache.removeValueForKey(key)
     }
-    
+
     static func removeAllCache() {
         MemoryWarehouse.globalCache = [:]
     }

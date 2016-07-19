@@ -107,6 +107,14 @@ public class JSONWarehouse: Warehouseable, WarehouseCacheable {
         return unpackedItems
     }
     
+    /**
+     Retrieve the raw object stored
+     - returns: AnyObject?
+     */
+    public var rawObject: AnyObject? {
+        return loadCache()
+    }
+    
     func write(object: AnyObject, expires: StorageExpiry) {
         let cacheLocation = cacheFileURL()
         var storableDictionary = [String: AnyObject]()
