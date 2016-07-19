@@ -29,15 +29,15 @@ import Foundation
  ```
  */
 public protocol Storable {
-    /** 
-     Struct initialization  
+    /**
+     Struct initialization
 
      - parameter warehouse: the `Warehouseable` object from which you can extract your struct's properties
      */
     init?(warehouse: Warehouseable)
 
     /**
-     Dictionary representation  
+     Dictionary representation
 
      Returns the dictioanry representation of the current struct
      - returns: [String: AnyObject]
@@ -49,7 +49,7 @@ public extension Storable {
     /**
      Dictionary representation
      Returns the dictioanry representation of the current struct
-     
+
      - returns: [String: AnyObject]
      */
     func toDictionary() -> [String: AnyObject] {
@@ -112,7 +112,7 @@ extension NSDate: StorableDefaultType { }
 *  Enums without a raw value e.g. with associated types are not supported.
 */
 public protocol StorableRawEnum: Storable {
-    typealias StorableRawType: StorableDefaultType
+    associatedtype StorableRawType: StorableDefaultType
 
     /// Provided automatically for enum's that have a raw value
     var rawValue: StorableRawType { get }
